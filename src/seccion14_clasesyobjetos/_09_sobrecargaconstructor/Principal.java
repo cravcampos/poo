@@ -1,4 +1,4 @@
-package seccion14_clasesyobjetos._09_sobreconstructor;
+package seccion14_clasesyobjetos._09_sobrecargaconstructor;
 
 public class Principal {
     public static void main(String[] args) {
