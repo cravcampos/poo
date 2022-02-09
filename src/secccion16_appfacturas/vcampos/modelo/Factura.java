@@ -79,13 +79,15 @@ public class Factura {
                 .append("\nCliente: ").append(this.cliente.getNombre())
                 .append("\t nit: ").append(this.cliente.getNit())
                 .append("\n Descripcion: ").append(this.descripcion)
-                .append("\n ")
-                .append("\n #\tNombre\t $\tCant.\tTotal\n ");
+                .append("\n ");
+
         SimpleDateFormat df = new SimpleDateFormat("dd 'de' MMMM, 'del' yyyy");
 
         sb.append("Fecha emision: ")
                 .append(df.format(this.fecha))
                 .append("\n");
+
+        sb.append("\n #\tNombre\t $\tCant.\tTotal\n ");
 
         for (ItemFactura item: this.items) {
             if (item == null){
