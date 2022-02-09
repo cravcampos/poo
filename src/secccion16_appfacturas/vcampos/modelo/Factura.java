@@ -60,4 +60,27 @@ public class Factura {
         }
 
     }
+
+    public double calcularTotal(){
+        double total = 0;
+        for (ItemFactura item: this.items) {
+            if (item == null){
+                continue;
+            }
+            total += item.calcularImporte();
+        }
+        return total;
+    }
+
+    public String generarDetalle(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("Factura No ").append(folio)
+                .append("\nCliente: ").append(this.cliente.getNombre())
+                .append("\t nit: ").append(this.cliente.getNit())
+                .append("\n Descripcion: ").append(this.descripcion)
+                .append("\n ")
+                .append("\n #\tNombre\t $\tCant.\tTotal\n ");
+
+        return sb.toString();
+    }
 }
