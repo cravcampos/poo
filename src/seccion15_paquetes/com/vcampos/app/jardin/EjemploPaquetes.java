@@ -1,7 +1,7 @@
-package seccion15_paquetes.com.vcampos.app;
+package seccion15_paquetes.com.vcampos.app.jardin;
 
 //importando de a una clase
-    //import seccion15_paquetes.com.vcampos.app.hogar.Perro;
+
     //import seccion15_paquetes.com.vcampos.app.hogar.Persona;
 
 //Importando todas las clases a la vez
@@ -19,12 +19,16 @@ public class EjemploPaquetes {
 
         // Instanciar una clase usando import
         Persona p = new Persona();
-        p.nombre = "Victor";
-        System.out.println(p.nombre);
+        p.setNombre("Victor");
+        p.setApellido("Campos");
+        System.out.println(p.getNombre());
 
         Perro perro = new Perro();
         perro.nombre = "Princesa";
-        System.out.println(perro.nombre);
+        perro.raza = "schnauzer";
+
+        String jugando = perro.jugar(p);
+        System.out.println(jugando);
 
 
     }
