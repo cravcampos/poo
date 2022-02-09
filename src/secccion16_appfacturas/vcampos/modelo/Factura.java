@@ -1,5 +1,6 @@
 package secccion16_appfacturas.vcampos.modelo;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Factura {
@@ -54,17 +55,17 @@ public class Factura {
         return items;
     }
 
-    public void addItemFactura(ItemFactura item){
-        if (indiceItems < MAX_ITEMS){
+    public void addItemFactura(ItemFactura item) {
+        if (indiceItems < MAX_ITEMS) {
             this.items[indiceItems++] = item;
         }
 
     }
 
-    public double calcularTotal(){
+    public double calcularTotal() {
         double total = 0;
-        for (ItemFactura item: this.items) {
-            if (item == null){
+        for (ItemFactura item : this.items) {
+            if (item == null) {
                 continue;
             }
             total += item.calcularImporte();
@@ -72,7 +73,7 @@ public class Factura {
         return total;
     }
 
-    public String generarDetalle(){
+    public String generarDetalle() {
         StringBuilder sb = new StringBuilder();
         sb.append("Factura No ").append(folio)
                 .append("\nCliente: ").append(this.cliente.getNombre())
@@ -80,6 +81,29 @@ public class Factura {
                 .append("\n Descripcion: ").append(this.descripcion)
                 .append("\n ")
                 .append("\n #\tNombre\t $\tCant.\tTotal\n ");
+        SimpleDateFormat df = new SimpleDateFormat("dd 'de' MMMM, 'del' yyyy");
+
+        sb.append("Fecha emision: ")
+                .append(df.format(this.fecha))
+                .append("\n");
+
+        for (ItemFactura item: this.items) {
+            if (item == null){
+                continue;
+            }
+            sb.append(item.getProducto().getCodigo())
+                    .append("\t")
+                    .append(item.getProducto().getNombre())
+                    .append("\t")
+                    .append(item.getProducto().getPrecio())
+                    .append("\t")
+                    .append(item.getCantidad())
+                    .append("\t")
+                    .append(item.calcularImporte())
+                    .append("\n");
+        }
+        sb.append("\n Gran total: ")
+                .append(calcularTotal());
 
         return sb.toString();
     }
