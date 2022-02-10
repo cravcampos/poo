@@ -1,4 +1,4 @@
-package secccion16_appfacturas.vcampos.modelo;
+package seccion16_appfacturas.com.vcampos.modelo;
 
 public class ItemFactura {
 

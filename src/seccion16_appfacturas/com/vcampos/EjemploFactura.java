@@ -1,6 +1,10 @@
-package secccion16_appfacturas.vcampos;
+package seccion16_appfacturas.com.vcampos;
 
 import secccion16_appfacturas.vcampos.modelo.*;
+import seccion16_appfacturas.com.vcampos.modelo.Factura;
+import seccion16_appfacturas.com.vcampos.modelo.Cliente;
+import seccion16_appfacturas.com.vcampos.modelo.ItemFactura;
+import seccion16_appfacturas.com.vcampos.modelo.Producto;
 
 
 import java.util.Scanner;
