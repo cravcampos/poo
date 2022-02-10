@@ -1,9 +1,7 @@
 package secccion16_appfacturas.vcampos;
 
-import secccion16_appfacturas.vcampos.modelo.Cliente;
-import secccion16_appfacturas.vcampos.modelo.Factura;
-import secccion16_appfacturas.vcampos.modelo.ItemFactura;
-import secccion16_appfacturas.vcampos.modelo.Producto;
+import secccion16_appfacturas.vcampos.modelo.*;
+
 
 import java.util.Scanner;
 
@@ -23,28 +21,21 @@ public class EjemploFactura {
         Factura factura = new Factura(desc,cliente);
 
         Producto producto;
-        String nombre;
-        double precio;
-        int cantidad;
 
         for (int i = 0; i < 5; i++) {
             producto = new Producto();
             System.out.print("Ingrese producto N° " + producto.getCodigo() + ": ");
-            nombre = sc.nextLine();
-            producto.setNombre(nombre);
+            producto.setNombre(sc.nextLine());
 
             System.out.print("Ingrese precio del producto: ");
-            precio = sc.nextDouble();
-            producto.setPrecio(precio);
+            producto.setPrecio(sc.nextDouble());
 
             System.out.print("Ingrese cantidad: ");
-            cantidad = sc.nextInt();
 
-            ItemFactura item = new ItemFactura(cantidad, producto);
-            factura.addItemFactura(item);
+            factura.addItemFactura(new ItemFactura(sc.nextInt(), producto));
             System.out.println();
             sc.nextLine();
         }
-        System.out.println(factura.generarDetalle());
+        System.out.println(factura);
     }
 }
