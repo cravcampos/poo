@@ -17,12 +17,11 @@ public class EjemploFactura {
 
         // Creando una nueva factura
         System.out.print("Ingrese la descripción de la factura: ");
-        String desc = sc.nextLine();
-        Factura factura = new Factura(desc,cliente);
+        Factura factura = new Factura(sc.nextLine(),cliente);
 
         Producto producto;
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 2; i++) {
             producto = new Producto();
             System.out.print("Ingrese producto N° " + producto.getCodigo() + ": ");
             producto.setNombre(sc.nextLine());
